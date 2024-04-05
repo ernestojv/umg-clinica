@@ -11,5 +11,6 @@ namespace UMG_Clinica.Models
     {
         public ClinicaDbContext() : base(ConfigurationManager.ConnectionStrings["dbClinica"].ConnectionString) { }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Cita> Cita { get; set; }
     }
 }
