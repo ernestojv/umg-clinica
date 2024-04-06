@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace UMG_Clinica
 {
-    internal interface Consulta
-    
-    {
+
         [Table("Consulta")]
         public class Consulta
         {
@@ -33,4 +31,3 @@ namespace UMG_Clinica
         }
     }
 
-}
