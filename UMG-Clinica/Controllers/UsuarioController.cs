@@ -27,7 +27,13 @@ namespace UMG_Clinica.Controllers {
         public IHttpActionResult Get(string nombreDeUsuario) {
             try {
                 var usuario = _dbContext.Usuario.Find(nombreDeUsuario);
-                if (usuario == null) return NotFound();
+                if (usuario == null) {
+                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound) {
+                        Content = new StringContent("Usuario no encontrado")
+                    };
+
+                    return ResponseMessage(responseMessage);
+                }
                 return Ok(usuario);
             }
             catch (Exception e) {
@@ -38,7 +44,13 @@ namespace UMG_Clinica.Controllers {
         public IHttpActionResult Post([FromBody] Usuario usuario) {
             try {
                 var usuarioDb = _dbContext.Usuario.Find(usuario.NombreDeUsuario);
-                if (usuarioDb != null) return Conflict();
+                if (usuarioDb != null) {
+                    var responseMessage = new HttpResponseMessage(HttpStatusCode.Conflict) {
+                        Content = new StringContent("Usuario ya registrado")
+                    };
+
+                    return ResponseMessage(responseMessage);
+                }
                 _dbContext.Usuario.Add(usuario);
                 _dbContext.SaveChanges();
                 return Ok(usuario);
@@ -53,7 +65,11 @@ namespace UMG_Clinica.Controllers {
             try {
                 var usuarioDb = _dbContext.Usuario.Find(usuario.NombreDeUsuario);
                 if (usuarioDb == null) {
-                    return NotFound();
+                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound) {
+                        Content = new StringContent("Usuario no encontrado")
+                    };
+
+                    return ResponseMessage(responseMessage);
                 }
                 usuarioDb.Nombre = usuario.Nombre;
                 usuarioDb.Contrasena = usuario.Contrasena;
@@ -70,7 +86,11 @@ namespace UMG_Clinica.Controllers {
             try {
                 var usuario = _dbContext.Usuario.Find(nombreDeUsuario);
                 if (usuario == null) {
-                    return NotFound();
+                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound) {
+                        Content = new StringContent("Usuario no encontrado")
+                    };
+
+                    return ResponseMessage(responseMessage);
                 }
                 _dbContext.Usuario.Remove(usuario);
                 _dbContext.SaveChanges();
