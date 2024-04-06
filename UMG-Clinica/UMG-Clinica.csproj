@@ -170,6 +170,8 @@
     </Compile>
     <Compile Include="Models\Cita.cs" />
     <Compile Include="Models\ClinicaDbContext.cs" />
+    <Compile Include="Models\ConsultaMedicina.cs" />
+    <Compile Include="Models\Medicamento.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
