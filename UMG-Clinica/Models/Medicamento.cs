@@ -1,10 +1,9 @@
-﻿using Microsoft.Analytics.Interfaces;
-using Microsoft.Analytics.Types.Sql;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
+using System.Web;
 
 namespace UMG_Clinica.Models
 {
