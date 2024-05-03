@@ -177,7 +177,6 @@
     </Compile>
     <Compile Include="Models\Cita.cs" />
     <Compile Include="Models\ClinicaDbContext.cs" />
-    <Compile Include="Models\ConsultaEnfermedad.cs" />
     <Compile Include="Models\ConsultaMedicina.cs" />
     <Compile Include="Models\Enfermedad.cs" />
     <Compile Include="Models\Medicamento.cs" />
