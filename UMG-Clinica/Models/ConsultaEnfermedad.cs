@@ -13,13 +13,13 @@ namespace UMG_Clinica.Models
         [Key]
         public int ID { get; set; }
 
-        [ForeignKey("ConsultaE")]
-        public int ID_ConsultaE { get; set; }
-        public ConsultaE ConsultaE { get; set; }
+        [ForeignKey("Consulta")]
+        public int ID_Consulta { get; set; }
+        public Consulta Consulta { get; set; }
 
         [ForeignKey("Enfermedad")]
-        public int ID_Enfermedad { get; set; }
-        public Enfermedad Enfermedad { get; set; }
+        public int ID_Medicamento { get; set; }
+        public Medicamento Medicamento { get; set; }
 
         public string Indicaciones { get; set; }
     }

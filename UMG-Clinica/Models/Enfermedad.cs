@@ -8,19 +8,19 @@ using System.Web;
 namespace UMG_Clinica.Models
 {
     [Table("Enfermedad")]
-    public class NEnfermedad
+    public class Enfermedad
     {
         [Key]
-        public int ID { get; set; }
+        public int ID_Enfermedad { get; set; }
 
-        [ForeignKey("Enfermedad")]
-        public int ID_NEnfermedad { get; set; }
-        public ConsultaE ConsultaE { get; set; }
+        [Required]
+        [StringLength(100)]
+        public string Nombre_del_paciente { get; set; }
 
-        [ForeignKey("Enfermedad")]
-        public int ID_NEnfermedad { get; set; }
-        public NEnfermedad Enfermedad { get; set; }
+        [StringLength(255)]
+        public string Descripcion { get; set; }
 
-        public string Indicaciones { get; set; }
+        public int Indicaciones { get; set; }
+
     }
 }
