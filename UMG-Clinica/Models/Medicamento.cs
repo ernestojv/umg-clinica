@@ -7,7 +7,7 @@ using System.Web;
 
 namespace UMG_Clinica.Models
 {
-    [Table("Cita")]
+    [Table("Medicamento")]
     public class Medicamento
     {
         [Key]

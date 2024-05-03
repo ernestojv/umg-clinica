@@ -14,6 +14,8 @@ namespace UMG_Clinica.Controllers
     public class clinicaController : ApiController
     {
         private readonly ClinicaDbContext _dbContext = new ClinicaDbContext();
+    }
+}
 
         
         
