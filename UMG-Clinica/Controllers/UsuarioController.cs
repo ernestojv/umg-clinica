@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 using UMG_Clinica.Models;
 using HttpDeleteAttribute = System.Web.Http.HttpDeleteAttribute;
 using RouteAttribute = System.Web.Http.RouteAttribute;
@@ -60,10 +61,11 @@ namespace UMG_Clinica.Controllers {
             }
 
         }
-        [Route("")]
-        public IHttpActionResult Put([FromBody] Usuario usuario) {
+        [Route("{nombreDeUsuario}")]
+        [HttpPut]
+        public IHttpActionResult Put([FromBody] Usuario usuario, string nombreDeUsuario) {
             try {
-                var usuarioDb = _dbContext.Usuario.Find(usuario.NombreDeUsuario);
+                var usuarioDb = _dbContext.Usuario.Find(nombreDeUsuario);
                 if (usuarioDb == null) {
                     var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound) {
                         Content = new StringContent("Usuario no encontrado")
@@ -73,6 +75,7 @@ namespace UMG_Clinica.Controllers {
                 }
                 usuarioDb.Nombre = usuario.Nombre;
                 usuarioDb.Contrasena = usuario.Contrasena;
+                usuario.NombreDeUsuario = nombreDeUsuario;
                 _dbContext.SaveChanges();
                 return Ok(usuario);
             }

@@ -95,3 +95,54 @@ CREATE TABLE Consulta_Medicina (
     FOREIGN KEY (ID_Consulta) REFERENCES Consulta(ID_Consulta),
     FOREIGN KEY (ID_Medicamento) REFERENCES Medicamento(ID_Medicamento)
 );
+-- Inserts
+
+-- Insertar registros en la tabla Usuario
+INSERT INTO Usuario (Nombre_de_usuario, Contrasena, Nombre) VALUES
+('usuario1', 'contrasena1', 'Juan Perez'),
+('usuario2', 'contrasena2', 'Maria Garcia');
+
+-- Insertar registros en la tabla Clinica
+INSERT INTO Clinica (ID_Clinica, Nombre, Direccion, Telefono) VALUES
+(1, 'Clinica A', 'Calle Principal 123', '123-456-7890'),
+(2, 'Clinica B', 'Avenida Central 456', '987-654-3210');
+
+-- Insertar registros en la tabla Medicamento
+INSERT INTO Medicamento (ID_Medicamento, Nombre, Descripcion, Stock, Precio) VALUES
+(1, 'Medicamento 1', 'Descripción del medicamento 1', 100, 10.99),
+(2, 'Medicamento 2', 'Descripción del medicamento 2', 50, 20.50);
+
+-- Insertar registros en la tabla Enfermedad
+INSERT INTO Enfermedad (ID_Enfermedad, Nombre, Descripcion) VALUES
+(1, 'Enfermedad 1', 'Descripción de la enfermedad 1'),
+(2, 'Enfermedad 2', 'Descripción de la enfermedad 2');
+
+-- Insertar registros en la tabla Paciente
+INSERT INTO Paciente (ID_Paciente, Nombre, Edad, Sexo, Numero_de_telefono) VALUES
+(1, 'Paciente 1', 30, 'M', '111-222-3333'),
+(2, 'Paciente 2', 25, 'F', '444-555-6666');
+
+-- Insertar registros en la tabla Empleado
+INSERT INTO Empleado (ID_Empleado, Nombre, Puesto, Numero_de_telefono, dpi, Nombre_de_usuario) VALUES
+(1, 'Empleado 1', 'Doctor', '777-888-9999', '1234567890123', 'usuario1'),
+(2, 'Empleado 2', 'Enfermero', '999-888-7777', '9876543210987', 'usuario2');
+
+-- Insertar registros en la tabla Cita
+INSERT INTO Cita (ID_Cita, Fecha_hora, Estado, ID_Clinica, ID_Paciente, ID_Empleado) VALUES
+(1, '2024-05-03 10:00:00', 'Programada', 1, 1, 1),
+(2, '2024-05-04 11:00:00', 'Cancelada', 2, 2, 2);
+
+-- Insertar registros en la tabla Consulta
+INSERT INTO Consulta (ID_Consulta, Observaciones, Fecha, ID_Clinica, ID_Paciente, ID_Empleado, ID_Cita) VALUES
+(1, 'Observaciones de la consulta 1', '2024-05-03', 1, 1, 1, 1),
+(2, 'Observaciones de la consulta 2', '2024-05-04', 2, 2, 2, 2);
+
+-- Insertar registros en la tabla Consulta_Enfermedad
+INSERT INTO Consulta_Enfermedad (ID, ID_Consulta, ID_Enfermedad) VALUES
+(1, 1, 1),
+(2, 2, 2);
+
+-- Insertar registros en la tabla Consulta_Medicina
+INSERT INTO Consulta_Medicina (ID, ID_Consulta, ID_Medicamento, Indicaciones) VALUES
+(1, 1, 1, 'Indicaciones del medicamento 1'),
+(2, 2, 2, 'Indicaciones del medicamento 2');
