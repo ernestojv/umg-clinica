@@ -78,6 +78,7 @@ namespace UMG_Clinica.Controllers {
         }
 
         [Route("{idCita}")]
+        [HttpDelete]
         public IHttpActionResult Delete(int idCita) {
             try {
                 var cita = _dbContext.Cita.Find(idCita);

@@ -80,6 +80,7 @@ namespace UMG_Clinica.Controllers {
         }
 
         [Route("{idEmpleado}")]
+        [HttpDelete]
         public IHttpActionResult Delete(int idEmpleado) {
             try {
                 var empleado = _dbContext.Empleado.Find(idEmpleado);

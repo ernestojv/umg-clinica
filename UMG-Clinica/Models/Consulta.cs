@@ -20,7 +20,7 @@ namespace UMG_Clinica {
 
         [Column("ID_Clinica")]
         [ForeignKey("Clinica")]
-        public string IdClinica { get; set; }
+        public int IdClinica { get; set; }
         public virtual Clinica Clinica { get; set; }
 
 

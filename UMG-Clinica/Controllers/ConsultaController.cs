@@ -4,7 +4,7 @@ using System.Web.Http;
 using UMG_Clinica.Models;
 
 namespace UMG_Clinica.Controllers {
-    [System.Web.Http.RoutePrefix("api/clinica")]
+    [System.Web.Http.RoutePrefix("api/consulta")]
     public class ConsultaController : ApiController {
         private readonly ClinicaDbContext _dbContext = new ClinicaDbContext();
 
