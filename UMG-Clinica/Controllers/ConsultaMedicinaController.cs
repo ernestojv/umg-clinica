@@ -16,92 +16,82 @@ namespace UMG_Clinica.Controllers
         private readonly ClinicaDbContext _dbContext = new ClinicaDbContext();
 
         [Route("")]
-        public IHttpActionResult Get()
-        {
-            try
-            {
-                var consultasMedicina = _dbContext.Consulta_Medicina.ToList();
-                return Ok(consultasMedicina);
+        public IHttpActionResult Get() {
+            try {
+                var consultaMedicina = _dbContext.ConsultaMedicina.ToList();
+                return Ok(consultaMedicina);
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 return BadRequest(e.Message);
             }
         }
 
-        [Route("{ID}")]
-        public IHttpActionResult Get(int id)
-        {
-            try
-            {
-                var consultaMedicina = _dbContext.Consulta_Medicina.Find(id);
-                if (consultaMedicina == null)
-                {
-                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound)
-                    {
-                        Content = new StringContent("Consulta de medicina no encontrada")
+        [Route("{id}")]
+        public IHttpActionResult Get(int id) {
+            try {
+                var consultaMedicina = _dbContext.ConsultaMedicina.Find(id);
+                if (consultaMedicina == null) {
+                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound) {
+                        Content = new StringContent("ConsultaMedicina no encontrada")
                     };
                     return ResponseMessage(responseMessage);
                 }
                 return Ok(consultaMedicina);
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 return BadRequest(e.Message);
             }
         }
 
         [Route("")]
-        public IHttpActionResult Post([FromBody] Consulta_Medicina consultaMedicina)
-        {
-            try
-            {
-                _dbContext.Consulta_Medicina.Add(consultaMedicina);
+        public IHttpActionResult Post([FromBody] ConsultaMedicina consultaMedicina) {
+            try {
+                _dbContext.ConsultaMedicina.Add(consultaMedicina);
                 _dbContext.SaveChanges();
                 return Ok(consultaMedicina);
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 return BadRequest(e.Message);
             }
         }
 
-        [Route("")]
-        public IHttpActionResult Put([FromBody] Consulta_Medicina consultaMedicina)
-        {
-            try
-            {
-                _dbContext.Entry(consultaMedicina).State = System.Data.Entity.EntityState.Modified;
-                _dbContext.SaveChanges();
-                return Ok(consultaMedicina);
+        [Route("{id}")]
+        public IHttpActionResult Put(int id, [FromBody] ConsultaMedicina consultaMedicina) {
+            try {
+                var consultaMedicinaDb = _dbContext.ConsultaMedicina.Find(id);
+                if (consultaMedicinaDb == null) {
+                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound) {
+                        Content = new StringContent("ConsultaMedicina no encontrada")
+                    };
+                    return ResponseMessage(responseMessage);
+                }
+                consultaMedicinaDb.IdConsulta = consultaMedicina.IdConsulta;
+                consultaMedicinaDb.IdMedicamento = consultaMedicina.IdMedicamento;
+                consultaMedicinaDb.Indicaciones = consultaMedicina.Indicaciones;
+
+                return Ok(consultaMedicinaDb);
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 return BadRequest(e.Message);
             }
         }
 
+        [Route("{id}")]
         [HttpDelete]
-        [Route("{ID}")]
-        public IHttpActionResult Delete(int id)
-        {
-            try
-            {
-                var consultaMedicina = _dbContext.Consulta_Medicina.Find(id);
-                if (consultaMedicina == null)
-                {
-                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound)
-                    {
-                        Content = new StringContent("Consulta de medicina no encontrada")
+        public IHttpActionResult Delete(int id) {
+            try {
+                var consultaMedicina = _dbContext.ConsultaMedicina.Find(id);
+                if (consultaMedicina == null) {
+                    var responseMessage = new HttpResponseMessage(HttpStatusCode.NotFound) {
+                        Content = new StringContent("ConsultaMedicina no encontrada")
                     };
                     return ResponseMessage(responseMessage);
                 }
-                _dbContext.Consulta_Medicina.Remove(consultaMedicina);
+                _dbContext.ConsultaMedicina.Remove(consultaMedicina);
                 _dbContext.SaveChanges();
-                return Ok(consultaMedicina);
+                return Ok();
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 return BadRequest(e.Message);
             }
         }

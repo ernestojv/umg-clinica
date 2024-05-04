@@ -57,7 +57,7 @@ namespace UMG_Clinica.Controllers
         {
             try
             {
-                var medicamentoDb = _dbContext.Medicamento.Find(enfermedad.ID_Enfermedad);
+                var medicamentoDb = _dbContext.Medicamento.Find(enfermedad.IdEnfermedad);
                 if (medicamentoDb != null)
                 {
                     var responseMessage = new HttpResponseMessage(HttpStatusCode.Conflict)
@@ -66,7 +66,7 @@ namespace UMG_Clinica.Controllers
                     };
                     return ResponseMessage(responseMessage);
                 }
-                _dbContext.Enfermedad.Add(Enfermedad);
+                _dbContext.Enfermedad.Add(enfermedad);
                 _dbContext.SaveChanges();
                 return Ok(enfermedad);
             }

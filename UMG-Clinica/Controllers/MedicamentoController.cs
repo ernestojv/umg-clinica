@@ -57,7 +57,7 @@ namespace UMG_Clinica.Controllers
         {
             try
             {
-                var medicamentoDb = _dbContext.Medicamento.Find(medicamento.ID_Medicamento);
+                var medicamentoDb = _dbContext.Medicamento.Find(medicamento.IdMedicamento);
                 if (medicamentoDb != null)
                 {
                     var responseMessage = new HttpResponseMessage(HttpStatusCode.Conflict)

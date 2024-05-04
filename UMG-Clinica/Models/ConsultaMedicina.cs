@@ -8,7 +8,7 @@ using System.Web;
 namespace UMG_Clinica.Models
 {
     [Table("Consulta_Medicina")]
-    public class Consulta_Medicina
+    public class ConsultaMedicina
     {
         [Key]
         [Column("ID")]
