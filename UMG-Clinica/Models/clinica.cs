@@ -5,11 +5,14 @@ namespace UMG_Clinica {
     [Table("clinica")]
     public class Clinica {
         [Key]
-        [Column("ID_clinica")]
-        public int Nombre { get; set; }
+        [Column("ID_Clinica")]
+        public int IdClinica { get; set; }
+
         [Column("Nombre")]
-        public string Direccion { get; set; }
+        public string Nombre { get; set; }
         [Column("Direccion")]
+        public string Direccion { get; set; }
+        [Column("Telefono")]
         public string Telefono { get; set; }
 
     }

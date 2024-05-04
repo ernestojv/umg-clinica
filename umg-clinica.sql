@@ -7,7 +7,7 @@ CREATE TABLE Usuario (
 
 -- Tabla: Clinica
 CREATE TABLE Clinica (
-    ID_Clinica INT PRIMARY KEY,
+    ID_Clinica INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(100),
     Direccion VARCHAR(255),
     Telefono VARCHAR(20)
@@ -15,7 +15,7 @@ CREATE TABLE Clinica (
 
 -- Tabla: Medicamento
 CREATE TABLE Medicamento (
-    ID_Medicamento INT PRIMARY KEY,
+    ID_Medicamento INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(100),
     Descripcion VARCHAR(255),
     Stock INT,
@@ -24,14 +24,14 @@ CREATE TABLE Medicamento (
 
 -- Tabla: Enfermedad
 CREATE TABLE Enfermedad (
-    ID_Enfermedad INT PRIMARY KEY,
+    ID_Enfermedad INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(100),
     Descripcion VARCHAR(255)
 );
 
 -- Tabla: Paciente
 CREATE TABLE Paciente (
-    ID_Paciente INT PRIMARY KEY,
+    ID_Paciente INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(100),
     Edad INT,
     Sexo CHAR(1),
@@ -40,7 +40,7 @@ CREATE TABLE Paciente (
 
 -- Tabla: Empleado
 CREATE TABLE Empleado (
-    ID_Empleado INT PRIMARY KEY,
+    ID_Empleado INT PRIMARY KEY AUTO_INCREMENT,
     Nombre VARCHAR(100),
     Puesto VARCHAR(100),
     Numero_de_telefono VARCHAR(20),
@@ -51,7 +51,7 @@ CREATE TABLE Empleado (
 
 -- Tabla: Cita
 CREATE TABLE Cita (
-    ID_Cita INT PRIMARY KEY,
+    ID_Cita INT PRIMARY KEY AUTO_INCREMENT,
     Fecha_hora DATETIME,
     Estado VARCHAR(50),
     ID_Clinica INT,
@@ -64,7 +64,7 @@ CREATE TABLE Cita (
 
 -- Tabla: Consulta
 CREATE TABLE Consulta (
-    ID_Consulta INT PRIMARY KEY,
+    ID_Consulta INT PRIMARY KEY AUTO_INCREMENT,
     Observaciones TEXT,
     Fecha DATE,
     ID_Clinica INT,
@@ -79,7 +79,7 @@ CREATE TABLE Consulta (
 
 -- Tabla: Consulta_Enfermedad
 CREATE TABLE Consulta_Enfermedad (
-    ID INT PRIMARY KEY,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     ID_Consulta INT,
     ID_Enfermedad INT,
     FOREIGN KEY (ID_Consulta) REFERENCES Consulta(ID_Consulta),
@@ -88,13 +88,14 @@ CREATE TABLE Consulta_Enfermedad (
 
 -- Tabla: Consulta_Medicina
 CREATE TABLE Consulta_Medicina (
-    ID INT PRIMARY KEY,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     ID_Consulta INT,
     ID_Medicamento INT,
     Indicaciones TEXT,
     FOREIGN KEY (ID_Consulta) REFERENCES Consulta(ID_Consulta),
     FOREIGN KEY (ID_Medicamento) REFERENCES Medicamento(ID_Medicamento)
 );
+
 -- Inserts
 
 -- Insertar registros en la tabla Usuario
