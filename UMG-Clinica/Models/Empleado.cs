@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 
 namespace UMG_Clinica.Models {
+    [Table("Empleado")]
     public class Empleado {
         [Key]
         [Column("ID_Empleado")]

@@ -8,7 +8,7 @@ namespace UMG_Clinica {
         [Column("ID_clinica")]
         public int Nombre { get; set; }
         [Column("Nombre")]
-        public int Direccion { get; set; }
+        public string Direccion { get; set; }
         [Column("Direccion")]
         public string Telefono { get; set; }
 
