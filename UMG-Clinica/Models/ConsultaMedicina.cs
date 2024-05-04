@@ -7,20 +7,24 @@ using System.Web;
 
 namespace UMG_Clinica.Models
 {
-    [Table("ConsultaMedicina")]
+    [Table("Consulta_Medicina")]
     public class Consulta_Medicina
     {
         [Key]
-        public int ID { get; set; }
+        [Column("ID")]
+        public int Id { get; set; }
 
+        [Column("ID_Consulta")]
         [ForeignKey("Consulta")]
-        public int ID_Consulta { get; set; }
-        public Consulta Consulta { get; set; }
+        public int IdConsulta { get; set; }
+        public virtual Consulta Consulta { get; set; }
 
+        [Column("ID_Medicamento")]
         [ForeignKey("Medicamento")]
-        public int ID_Medicamento { get; set; }
-        public Medicamento Medicamento { get; set; }
+        public int IdMedicamento { get; set; }
+        public virtual Medicamento Medicamento { get; set; }
 
+        [Column("Indicaciones")]
         public string Indicaciones { get; set; }
     }
 }

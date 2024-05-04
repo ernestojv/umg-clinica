@@ -1,28 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
 namespace UMG_Clinica.Models {
     [Table("Cita")]
     public class Cita {
         [Key]
         [Column("ID_Cita")]
-        public int idCita { get; set; }
+        public int IdCita { get; set; }
+
         [Column("Fecha_Hora")]
-        public DateTime fechaHora { get; set; }
+        public DateTime FechaHora { get; set; }
+
         [Column("Estado")]
-        public string estado { get; set; }
+        public string Estado { get; set; }
+
         [Column("ID_Clinica")]
         [ForeignKey("Clinica")]
-        public int idClinica { get; set; }
+        public int IdClinica { get; set; }
+        public virtual Clinica Clinica { get; set; }
+
         [Column("ID_Paciente")]
         [ForeignKey("Paciente")]
-        public int idPaciente { get; set; }
+        public int IdPaciente { get; set; }
+        public virtual Paciente Paciente { get; set; }
+
         [Column("ID_Empleado")]
         [ForeignKey("Empleado")]
-        public int idEmpleado { get; set; }
+        public int IdEmpleado { get; set; }
+
     }
 }

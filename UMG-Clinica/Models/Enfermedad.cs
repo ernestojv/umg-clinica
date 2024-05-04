@@ -5,22 +5,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace UMG_Clinica.Models
-{
+namespace UMG_Clinica.Models {
     [Table("Enfermedad")]
-    public class Enfermedad
-    {
+    public class Enfermedad {
         [Key]
-        public int ID_Enfermedad { get; set; }
+        [Column("ID_Enfermedad")]
+        public int IdEnfermedad { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string Nombre_del_paciente { get; set; }
+        [Column("Nombre")]
+        public string Nombre { get; set; }
 
-        [StringLength(255)]
+        [Column("Descripcion")]
         public string Descripcion { get; set; }
 
-        public int Indicaciones { get; set; }
 
     }
 }

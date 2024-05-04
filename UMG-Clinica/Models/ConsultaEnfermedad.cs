@@ -1,26 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
 
-namespace UMG_Clinica.Models
-{
+namespace UMG_Clinica.Models {
     [Table("ConsultaEnfermedad")]
-    public class Consulta_Enfermedad
-    {
+    public class ConsultaEnfermedad {
         [Key]
-        public int ID { get; set; }
+        [Column("ID")]
+        public int Id { get; set; }
 
+        [Column("ID_Consulta")]
         [ForeignKey("Consulta")]
-        public int ID_Consulta { get; set; }
-        public Consulta Consulta { get; set; }
+        public int IdConsulta { get; set; }
+        public virtual Consulta Consulta { get; set; }
 
+        [Column("ID_Enfermedad")]
         [ForeignKey("Enfermedad")]
-        public int ID_Medicamento { get; set; }
-        public Medicamento Medicamento { get; set; }
+        public int IdEnfermedad { get; set; }
+        public virtual Enfermedad Enfermedad { get; set; }
 
-        public string Indicaciones { get; set; }
     }
 }

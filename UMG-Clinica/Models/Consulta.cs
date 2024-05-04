@@ -1,33 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UMG_Clinica.Models;
 
-namespace UMG_Clinica
-{
+namespace UMG_Clinica {
 
-        [Table("Consulta")]
-        public class Consulta
-        {
-            [Key]
-            [Column("ID_Consulta")]
-            public int idConsulta { get; set; }
-            [Column("Fecha")]
-            public DateTime Fecha{ get; set; }
-            [Column("Observaciones")]
-            public string Id_clinica { get; set; }
-            [Column("ID_Clinica")]
-            public int idClinica { get; set; }
-            [Column("ID_Paciente")]
-            public int idPaciente { get; set; }
-            [Column("ID_Empleado")]
-            public int idDoctor { get; set; }
-            [Column("ID_Doctor")]
-            public int idcita { get; set; }
+    [Table("Consulta")]
+    public class Consulta {
+        [Key]
+        [Column("ID_Consulta")]
+        public int IdConsulta { get; set; }
 
-        }
+        [Column("Observaciones")]
+        public string Observaciones { get; set; }
+
+
+        [Column("Fecha")]
+        public DateTime Fecha { get; set; }
+
+        [Column("ID_Clinica")]
+        [ForeignKey("Clinica")]
+        public string IdClinica { get; set; }
+        public virtual Clinica Clinica { get; set; }
+
+
+        [Column("ID_Paciente")]
+        [ForeignKey("Paciente")]
+        public int IdPaciente { get; set; }
+        public virtual Paciente Paciente { get; set; }
+
+
+        [Column("ID_Empleado")]
+        [ForeignKey("Empleado")]
+        public int IdEmpleado { get; set; }
+        public virtual Empleado Empleado { get; set; }
+
+
+        [Column("ID_Cita")]
+        [ForeignKey("Cita")]
+        public int IdCita { get; set; }
+        public virtual Cita Cita { get; set; }
+
     }
+}
 

@@ -11,18 +11,19 @@ namespace UMG_Clinica.Models
     public class Medicamento
     {
         [Key]
-        public int ID_Medicamento { get; set; }
+        [Column("ID_Medicamento")]
+        public int IdMedicamento { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Column("Nombre")]
         public string Nombre { get; set; }
 
-        [StringLength(255)]
+        [Column("Descripcion")]
         public string Descripcion { get; set; }
 
+        [Column("Stock")]
         public int Stock { get; set; }
 
-        [Column(TypeName = "decimal(10, 2)")]
+        [Column("Precio")]
         public decimal Precio { get; set; }
     }
 }
