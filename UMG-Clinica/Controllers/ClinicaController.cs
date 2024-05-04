@@ -11,7 +11,7 @@ using RouteAttribute = System.Web.Http.RouteAttribute;
 namespace UMG_Clinica.Controllers
 {
     [System.Web.Http.RoutePrefix("api/usuario")]
-    public class clinicaController : ApiController
+    public class ClinicaController : ApiController
     {
         private readonly ClinicaDbContext _dbContext = new ClinicaDbContext();
     }

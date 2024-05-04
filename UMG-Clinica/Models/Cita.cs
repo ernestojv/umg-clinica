@@ -16,10 +16,13 @@ namespace UMG_Clinica.Models {
         [Column("Estado")]
         public string estado { get; set; }
         [Column("ID_Clinica")]
+        [ForeignKey("Clinica")]
         public int idClinica { get; set; }
         [Column("ID_Paciente")]
+        [ForeignKey("Paciente")]
         public int idPaciente { get; set; }
         [Column("ID_Empleado")]
+        [ForeignKey("Empleado")]
         public int idEmpleado { get; set; }
     }
 }

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;  
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace UMG_Clinica.Models
-{
+namespace UMG_Clinica.Models {
     [Table("Usuario")]
-    public class Usuario
-    {
+    public class Usuario {
         [Key]
         [Column("Nombre_de_usuario")]
         public string NombreDeUsuario { get; set; }
